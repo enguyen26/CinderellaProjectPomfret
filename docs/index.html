@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Cinderella Project | Demo Presentation</title>
+    <meta
+      name="description"
+      content="Presentation page for The Cinderella Project website demo."
+    />
+    <style>
+      :root {
+        --paper: #fffdf8;
+        --ink: #33221a;
+        --rose: #b76a72;
+        --peach: #f4d7cb;
+        --gold: #9f7b4d;
+        --soft: #f6efe7;
+        --card: #ffffff;
+        --shadow: 0 12px 30px rgba(30, 22, 18, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 10%, rgba(244, 215, 203, 0.5) 0%, transparent 30%),
+          radial-gradient(circle at 85% 20%, rgba(183, 106, 114, 0.12) 0%, transparent 24%),
+          var(--paper);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        width: min(1080px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 48px 0 24px;
+      }
+
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background: #fff;
+        border: 1px solid #eadfd3;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4.4vw, 3.6rem);
+        margin: 16px 0 8px;
+        letter-spacing: 0.01em;
+      }
+
+      .subtitle {
+        max-width: 760px;
+        font-size: 1.1rem;
+        color: #5d4337;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1.3fr 1fr;
+        align-items: stretch;
+        margin: 24px 0 28px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid #f0e4da;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hand {
+        position: relative;
+      }
+
+      .hand::after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: 18px;
+        width: 64px;
+        height: 10px;
+        transform: rotate(-7deg);
+        background: rgba(255, 221, 93, 0.45);
+        border-radius: 3px;
+      }
+
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background: linear-gradient(140deg, #c77b84, #a45961);
+      }
+
+      .btn-soft {
+        color: #6c4a3e;
+        background: #fff4ee;
+        border-color: #efd7cb;
+      }
+
+      .checklist {
+        margin: 0;
+        padding: 0 0 0 18px;
+      }
+
+      .checklist li {
+        margin: 8px 0;
+      }
+
+      main section {
+        margin: 18px 0;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.5rem;
+      }
+
+      .split {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.9rem;
+        background: #fff9f3;
+        border: 1px solid #eedecf;
+        border-radius: 10px;
+        padding: 12px;
+        overflow-x: auto;
+      }
+
+      .steps {
+        counter-reset: step;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .steps li {
+        position: relative;
+        padding: 0 0 12px 46px;
+        margin: 0 0 6px;
+      }
+
+      .steps li::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(150deg, #cb8590, #9e5b64);
+      }
+
+      .footer-note {
+        margin: 26px 0 48px;
+        font-size: 0.92rem;
+        color: #6f5548;
+      }
+
+      .tiny {
+        font-size: 0.8rem;
+        color: #7f675a;
+      }
+
+      @media (max-width: 880px) {
+        .hero,
+        .split {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <div class="topline">
+        <span class="tag">Website Demo Presentation</span>
+        <span class="tag">Built by Elina Nguyen</span>
+      </div>
+      <h1>The Cinderella Project</h1>
+      <p class="subtitle">
+        A mission-driven web app that helps students browse donated formal dresses,
+        view impact stories, and use AI styling support to feel confident for their big event.
+      </p>
+    </header>
+
+    <main class="wrap">
+      <section class="grid hero">
+        <article class="card hand">
+          <h2>Live Demo</h2>
+          <p>
+            This page is the presentation layer. During class, use the buttons below to jump into the app and your source code.
+          </p>
+          <div class="btns">
+            <a class="btn btn-primary" href="REPLACE_WITH_LIVE_APP_LINK" target="_blank" rel="noreferrer">Open Live Website</a>
+            <a class="btn btn-soft" href="REPLACE_WITH_GITHUB_REPO_LINK" target="_blank" rel="noreferrer">View GitHub Repository</a>
+          </div>
+          <p class="tiny">
+            Tip: Replace both links before presenting.
+          </p>
+        </article>
+
+        <aside class="card">
+          <h2>Quick Pitch</h2>
+          <ul class="checklist">
+            <li><strong>Problem:</strong> many students cannot afford formalwear.</li>
+            <li><strong>Solution:</strong> accessible catalog + filtering + impact storytelling.</li>
+            <li><strong>Innovation:</strong> AI assistant for personalized outfit guidance.</li>
+            <li><strong>Design:</strong> warm editorial style to match the mission.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="grid split">
+        <article class="card">
+          <h2>Demo Flow (What I Will Show)</h2>
+          <ol class="steps">
+            <li>Landing page mission, tone, and user trust design choices.</li>
+            <li>Gallery section showing community impact and social proof.</li>
+            <li>Catalog filters by size, style, and availability for accessibility.</li>
+            <li>Virtual try-on upload flow and AI-generated styling response.</li>
+            <li>Modal details and reusable UI components.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h2>Technical Highlights</h2>
+          <ul class="checklist">
+            <li>State-driven tabbed navigation in React.</li>
+            <li>Data filtering logic for real-time catalog updates.</li>
+            <li>File upload + image preview using <code>FileReader</code>.</li>
+            <li>External API request pipeline for AI stylist output.</li>
+            <li>Component-level styling tuned to brand identity.</li>
+          </ul>
+          <div class="mono">
+            App file: cinderella-project/cinderella-project.jsx
+          </div>
+        </article>
+      </section>
+
+      <section class="grid split">
+        <article class="card">
+          <h2>What Makes It Feel Human-Made</h2>
+          <ul class="checklist">
+            <li>I chose a consistent charity-focused voice, not generic app text.</li>
+            <li>The UI balances polish and warmth with intentional color palette choices.</li>
+            <li>Feature decisions map directly to real user needs and constraints.</li>
+            <li>The pitch and flow are story-first, not just listing technical buzzwords.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Future Improvements</h2>
+          <ul class="checklist">
+            <li>Authentication for student/admin dashboard roles.</li>
+            <li>Real backend inventory system with reservations and pickup scheduling.</li>
+            <li>Accessibility audit (keyboard navigation and ARIA labels).</li>
+            <li>Usage analytics to improve donation and request matching.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Presenter Notes (Short Script)</h2>
+        <p>
+          "I designed The Cinderella Project as a social impact website, not just a store UI.
+          My goal was to show empathy in both the interface and the technical decisions.
+          I built filtering for practical dress search, then added AI styling guidance to
+          boost confidence for students who may not have access to personal styling support."
+        </p>
+      </section>
+
+      <p class="footer-note">
+        Built for classroom demo. Hosted with GitHub Pages via the <code>docs</code> folder.
+      </p>
+    </main>
+  </body>
+</html>
