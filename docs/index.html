@@ -3,75 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Cinderella Project | Demo Presentation</title>
+    <title>The Cinderella Project | 3-Minute Demo Page</title>
     <meta
       name="description"
-      content="Presentation page for The Cinderella Project website demo."
+      content="Clean showcase page for presenting The Cinderella Project in class."
     />
     <style>
       :root {
-        --paper: #fffdf8;
-        --ink: #33221a;
-        --rose: #b76a72;
-        --peach: #f4d7cb;
-        --gold: #9f7b4d;
-        --soft: #f6efe7;
-        --card: #ffffff;
-        --shadow: 0 12px 30px rgba(30, 22, 18, 0.08);
+        --bg: #fefaf6;
+        --ink: #25160f;
+        --ink-soft: #61463a;
+        --rose: #bc6d75;
+        --rose-deep: #9f4f5b;
+        --sand: #f3e8de;
+        --paper: #ffffff;
+        --line: #ecdccf;
+        --shadow: 0 16px 40px rgba(42, 23, 15, 0.08);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+        font-family: "Inter", "Avenir Next", "Segoe UI", system-ui, sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(circle at 15% 10%, rgba(244, 215, 203, 0.5) 0%, transparent 30%),
-          radial-gradient(circle at 85% 20%, rgba(183, 106, 114, 0.12) 0%, transparent 24%),
-          var(--paper);
-        line-height: 1.5;
+          radial-gradient(circle at 12% 12%, rgba(188, 109, 117, 0.13) 0%, transparent 30%),
+          radial-gradient(circle at 88% 15%, rgba(159, 79, 91, 0.09) 0%, transparent 24%),
+          var(--bg);
+        line-height: 1.6;
+      }
+
+      .progress-wrap {
+        position: fixed;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 4px;
+        z-index: 80;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--rose), var(--rose-deep));
       }
 
       .wrap {
-        width: min(1080px, 92vw);
+        width: min(1120px, 92vw);
         margin: 0 auto;
       }
 
-      header {
-        padding: 48px 0 24px;
+      .hero {
+        padding: 54px 0 24px;
       }
 
-      .topline {
-        display: flex;
-        justify-content: space-between;
+      .eyebrow {
+        display: inline-flex;
         align-items: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .tag {
-        background: #fff;
-        border: 1px solid #eadfd3;
-        border-radius: 999px;
-        padding: 8px 14px;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
+        gap: 8px;
+        font-size: 0.77rem;
         text-transform: uppercase;
+        letter-spacing: 0.14em;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.8);
       }
 
       h1 {
-        font-size: clamp(2rem, 4.4vw, 3.6rem);
-        margin: 16px 0 8px;
-        letter-spacing: 0.01em;
+        margin: 18px 0 10px;
+        font-size: clamp(2rem, 4.8vw, 4rem);
+        line-height: 1.05;
       }
 
       .subtitle {
         max-width: 760px;
-        font-size: 1.1rem;
-        color: #5d4337;
+        font-size: clamp(1rem, 1.7vw, 1.22rem);
+        color: var(--ink-soft);
       }
 
       .grid {
@@ -79,37 +93,25 @@
         gap: 18px;
       }
 
-      .hero {
-        grid-template-columns: 1.3fr 1fr;
-        align-items: stretch;
-        margin: 24px 0 28px;
+      .hero-grid {
+        margin-top: 24px;
+        grid-template-columns: 1.4fr 1fr;
       }
 
       .card {
-        background: var(--card);
-        border: 1px solid #f0e4da;
+        background: var(--paper);
+        border: 1px solid var(--line);
         border-radius: 20px;
         padding: 24px;
         box-shadow: var(--shadow);
       }
 
-      .hand {
-        position: relative;
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: clamp(1.25rem, 2.2vw, 1.65rem);
       }
 
-      .hand::after {
-        content: "";
-        position: absolute;
-        right: -8px;
-        top: 18px;
-        width: 64px;
-        height: 10px;
-        transform: rotate(-7deg);
-        background: rgba(255, 221, 93, 0.45);
-        border-radius: 3px;
-      }
-
-      .btns {
+      .btn-row {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -118,279 +120,365 @@
 
       .btn {
         display: inline-block;
-        padding: 10px 16px;
-        border-radius: 10px;
         text-decoration: none;
-        font-weight: 600;
+        padding: 11px 15px;
+        border-radius: 12px;
         border: 1px solid transparent;
+        font-weight: 700;
+        font-size: 0.92rem;
       }
 
-      .btn-primary {
+      .btn-main {
         color: #fff;
-        background: linear-gradient(140deg, #c77b84, #a45961);
+        background: linear-gradient(145deg, var(--rose), var(--rose-deep));
       }
 
       .btn-soft {
-        color: #6c4a3e;
-        background: #fff4ee;
-        border-color: #efd7cb;
+        color: #6b4b3e;
+        background: #fff5ee;
+        border-color: #efd9ca;
       }
 
-      .checklist {
-        margin: 0;
-        padding: 0 0 0 18px;
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 12px;
       }
 
-      .checklist li {
-        margin: 8px 0;
+      .metric {
+        background: #fff7f2;
+        border: 1px solid #f1ded0;
+        border-radius: 14px;
+        padding: 14px;
       }
 
-      main section {
+      .metric strong {
+        display: block;
+        font-size: 1.3rem;
+      }
+
+      section {
         margin: 18px 0;
-      }
-
-      h2 {
-        margin: 0 0 12px;
-        font-size: 1.5rem;
       }
 
       .split {
         grid-template-columns: 1fr 1fr;
       }
 
-      .mono {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 0.9rem;
-        background: #fff9f3;
-        border: 1px solid #eedecf;
-        border-radius: 10px;
-        padding: 12px;
-        overflow-x: auto;
+      .flow {
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
 
-      .steps {
-        counter-reset: step;
-        margin: 0;
+      .flow li {
+        padding: 10px 0;
+        border-bottom: 1px dashed #ebdacd;
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 10px;
+      }
+
+      .flow li:last-child {
+        border-bottom: none;
+      }
+
+      .time {
+        font-weight: 800;
+        color: var(--rose-deep);
+      }
+
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0 0;
         padding: 0;
         list-style: none;
       }
 
-      .steps li {
-        position: relative;
-        padding: 0 0 12px 46px;
-        margin: 0 0 6px;
-      }
-
-      .steps li::before {
-        counter-increment: step;
-        content: counter(step);
-        position: absolute;
-        left: 0;
-        top: 2px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-weight: 700;
-        color: #fff;
-        background: linear-gradient(150deg, #cb8590, #9e5b64);
-      }
-
-      .footer-note {
-        margin: 26px 0 48px;
-        font-size: 0.92rem;
-        color: #6f5548;
-      }
-
-      .tiny {
+      .chips li {
+        border: 1px solid #ecd8cb;
+        background: #fff8f3;
+        border-radius: 999px;
+        padding: 5px 10px;
         font-size: 0.8rem;
-        color: #7f675a;
       }
 
-      .shots {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .shot {
+      .embed {
+        overflow: hidden;
         border-radius: 14px;
-        border: 1px solid #eadfd3;
+        border: 1px solid #eddccf;
+      }
+
+      iframe {
+        border: 0;
+        width: 100%;
+        min-height: 540px;
+        background: #fff;
+      }
+
+      .snapshot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .snapshot {
+        border: 1px solid #ebdacd;
+        border-radius: 14px;
         overflow: hidden;
         background: #fff;
       }
 
-      .shot img {
-        width: 100%;
-        height: 210px;
-        object-fit: cover;
-        display: block;
+      .shot-head {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        padding: 8px 10px;
+        border-bottom: 1px solid #f0e2d7;
+        background: #fff8f3;
       }
 
-      .shot p {
-        margin: 0;
-        padding: 10px 12px;
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #e9c2aa;
+      }
+
+      .shot-body {
+        padding: 12px;
+        min-height: 120px;
+        font-size: 0.93rem;
+        color: #664b3f;
+      }
+
+      .talk {
+        background: #fff6f0;
+        border: 1px solid #efd8c8;
+        border-radius: 14px;
+        padding: 14px;
+        margin-top: 10px;
+      }
+
+      .small {
+        color: #7b6053;
         font-size: 0.9rem;
-        color: #6c4f43;
       }
 
-      .bar-wrap {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 4px;
-        z-index: 99;
-        background: transparent;
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
       }
 
-      .bar {
-        height: 4px;
-        width: 0%;
-        background: linear-gradient(90deg, #cc8d7f, #b76a72);
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
       }
 
-      @media (max-width: 880px) {
-        .hero,
+      footer {
+        margin: 26px 0 48px;
+        text-align: center;
+        color: #7a5e4f;
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
         .split,
-        .shots {
+        .snapshot-grid,
+        .metrics {
           grid-template-columns: 1fr;
+        }
+
+        .flow li {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        iframe {
+          min-height: 430px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="bar-wrap" aria-hidden="true"><div class="bar" id="scrollBar"></div></div>
-    <header class="wrap">
-      <div class="topline">
-        <span class="tag">Website Demo Presentation</span>
-        <span class="tag">Built by Elina Nguyen</span>
-      </div>
+    <div class="progress-wrap" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <header class="wrap hero reveal">
+      <span class="eyebrow">3-Minute Project Demo · Elina Nguyen</span>
       <h1>The Cinderella Project</h1>
       <p class="subtitle">
-        A mission-driven web app that helps students browse donated formal dresses,
-        view impact stories, and use AI styling support to feel confident for their big event.
+        A social-impact web app designed for confidence, belonging, and access: students can
+        browse donated dresses, filter by real needs, and use AI styling support for milestone events.
       </p>
-    </header>
 
-    <main class="wrap">
-      <section class="grid hero">
-        <article class="card hand">
-          <h2>Live Demo</h2>
+      <div class="grid hero-grid">
+        <article class="card">
+          <h2>What I Want You To Notice</h2>
           <p>
-            This page is the presentation layer. During class, use the buttons below to jump into the app and your source code.
+            I focused on <strong>real-world usefulness</strong>, not just visuals: mission-first design,
+            fast browsing, and thoughtful AI support that feels warm and inclusive.
           </p>
-          <div class="btns">
-            <a class="btn btn-primary" href="https://elinanguyen.github.io/cinderella-project/" target="_blank" rel="noreferrer">Open Live Website</a>
-            <a class="btn btn-soft" href="https://github.com/elinanguyen/cinderella-project" target="_blank" rel="noreferrer">View GitHub Repository</a>
+          <div class="btn-row">
+            <a class="btn btn-main" href="https://elinanguyen.github.io/cinderella-project/" target="_blank" rel="noreferrer">Open Live Website</a>
+            <a class="btn btn-soft" href="https://github.com/elinanguyen/cinderella-project" target="_blank" rel="noreferrer">View Repository</a>
           </div>
-          <p class="tiny">
-            These links are ready to use for your presentation.
-          </p>
+          <p class="small">Tip for class: keep this tab open and Cmd+click the live site button.</p>
         </article>
 
         <aside class="card">
-          <h2>Quick Pitch</h2>
-          <ul class="checklist">
-            <li><strong>Problem:</strong> many students cannot afford formalwear.</li>
-            <li><strong>Solution:</strong> accessible catalog + filtering + impact storytelling.</li>
-            <li><strong>Innovation:</strong> AI assistant for personalized outfit guidance.</li>
-            <li><strong>Design:</strong> warm editorial style to match the mission.</li>
+          <h2>Project Core</h2>
+          <div class="metrics">
+            <div class="metric">
+              <strong>Problem</strong>
+              Formalwear access gap
+            </div>
+            <div class="metric">
+              <strong>Solution</strong>
+              Filterable dress catalog
+            </div>
+            <div class="metric">
+              <strong>Extra</strong>
+              AI styling guidance
+            </div>
+          </div>
+          <ul class="chips">
+            <li>React State</li>
+            <li>FileReader Upload</li>
+            <li>API Request Flow</li>
+            <li>Responsive Layout</li>
           </ul>
         </aside>
-      </section>
+      </div>
+    </header>
 
-      <section class="grid split">
+    <main class="wrap">
+      <section class="grid split reveal">
         <article class="card">
-          <h2>Demo Flow (What I Will Show)</h2>
-          <ol class="steps">
-            <li>Landing page mission, tone, and user trust design choices.</li>
-            <li>Gallery section showing community impact and social proof.</li>
-            <li>Catalog filters by size, style, and availability for accessibility.</li>
-            <li>Virtual try-on upload flow and AI-generated styling response.</li>
-            <li>Modal details and reusable UI components.</li>
+          <h2>3-Minute Scroll Plan</h2>
+          <ol class="flow">
+            <li><span class="time">0:00-0:30</span><span>Mission and audience: why this app matters to students.</span></li>
+            <li><span class="time">0:30-1:15</span><span>Home + gallery visuals: trust, warmth, and community-centered tone.</span></li>
+            <li><span class="time">1:15-2:05</span><span>Catalog filters by size/style/availability for practical searching.</span></li>
+            <li><span class="time">2:05-2:45</span><span>AI try-on flow: photo upload, dress selection, personalized style feedback.</span></li>
+            <li><span class="time">2:45-3:00</span><span>Wrap up with impact and one next-step engineering goal.</span></li>
           </ol>
         </article>
 
         <article class="card">
-          <h2>Technical Highlights</h2>
-          <ul class="checklist">
-            <li>State-driven tabbed navigation in React.</li>
-            <li>Data filtering logic for real-time catalog updates.</li>
-            <li>File upload + image preview using <code>FileReader</code>.</li>
-            <li>External API request pipeline for AI stylist output.</li>
-            <li>Component-level styling tuned to brand identity.</li>
+          <h2>Tech Highlights (No Code Dump)</h2>
+          <ul>
+            <li>Tabbed navigation and view switching powered by React state.</li>
+            <li>Dress filtering logic updates results in real time.</li>
+            <li>Upload preview uses <code>FileReader</code> for instant feedback.</li>
+            <li>AI stylist call sends image + prompt and returns narrative output.</li>
+            <li>UI choices match the mission: warm palette, editorial typography, and clarity.</li>
           </ul>
-          <div class="mono">
-            App file: cinderella-project/cinderella-project.jsx
-          </div>
+          <p class="small">
+            Main implementation file: <code>frontend/src/CinderellaProject.jsx</code>
+          </p>
         </article>
       </section>
 
-      <section class="grid split">
-        <article class="card">
-          <h2>What Makes It Feel Human-Made</h2>
-          <ul class="checklist">
-            <li>I chose a consistent charity-focused voice, not generic app text.</li>
-            <li>The UI balances polish and warmth with intentional color palette choices.</li>
-            <li>Feature decisions map directly to real user needs and constraints.</li>
-            <li>The pitch and flow are story-first, not just listing technical buzzwords.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Future Improvements</h2>
-          <ul class="checklist">
-            <li>Authentication for student/admin dashboard roles.</li>
-            <li>Real backend inventory system with reservations and pickup scheduling.</li>
-            <li>Accessibility audit (keyboard navigation and ARIA labels).</li>
-            <li>Usage analytics to improve donation and request matching.</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="card">
-        <h2>Screenshots / Output</h2>
-        <p class="tiny">Teacher request check: visual output evidence from the real app.</p>
-        <div class="grid shots">
-          <figure class="shot">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=80" alt="Landing page style preview" />
-            <p>Landing page and mission-first visual design.</p>
-          </figure>
-          <figure class="shot">
-            <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=1000&q=80" alt="Catalog and browsing preview" />
-            <p>Catalog browsing, filtering, and dress detail flow.</p>
-          </figure>
-          <figure class="shot">
-            <img src="https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?w=1000&q=80" alt="AI styling output preview" />
-            <p>AI styling preview output and personalization result.</p>
-          </figure>
+      <section class="card reveal">
+        <h2>Live Output Embedded</h2>
+        <p class="small">
+          This is the actual deployed project output inside the presentation page.
+        </p>
+        <div class="embed">
+          <iframe
+            title="The Cinderella Project live demo"
+            src="https://elinanguyen.github.io/cinderella-project/"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          ></iframe>
         </div>
       </section>
 
-      <section class="card">
-        <h2>Presenter Notes (Short Script)</h2>
-        <p>
-          "I designed The Cinderella Project as a social impact website, not just a store UI.
-          My goal was to show empathy in both the interface and the technical decisions.
-          I built filtering for practical dress search, then added AI styling guidance to
-          boost confidence for students who may not have access to personal styling support."
-        </p>
+      <section class="card reveal">
+        <h2>Feature Snapshots To Talk Through</h2>
+        <div class="snapshot-grid">
+          <article class="snapshot">
+            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="shot-body">
+              <strong>Home + Mission:</strong> sets emotional tone and user trust before any interaction.
+            </div>
+          </article>
+          <article class="snapshot">
+            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="shot-body">
+              <strong>Catalog Filters:</strong> practical browsing by size, style, and availability.
+            </div>
+          </article>
+          <article class="snapshot">
+            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="shot-body">
+              <strong>AI Try-On:</strong> combines image upload and AI response for personal styling support.
+            </div>
+          </article>
+        </div>
+        <div class="talk">
+          <strong>Quick Script:</strong>
+          “I treated this as a product for real students, not just a coding exercise. Every feature
+          answers a practical or emotional need: finding something that fits, feeling confident, and
+          being seen.”
+        </div>
       </section>
 
-      <p class="footer-note">
-        Built for classroom demo. Hosted with GitHub Pages via the <code>docs</code> folder.
-      </p>
+      <section class="grid split reveal">
+        <article class="card">
+          <h2>Why This Demo Works For Class</h2>
+          <ul>
+            <li>Single smooth scroll with clear story pacing.</li>
+            <li>Readable at zoomed sizes due to fluid typography.</li>
+            <li>Shows both design thinking and implementation depth.</li>
+            <li>Includes live project output, not just static slides.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Next Technical Upgrade</h2>
+          <p>
+            Build a real backend inventory system (auth + reservations) so dress availability updates
+            safely for multiple users at once.
+          </p>
+          <p class="small">
+            This is the natural step after validating the front-end experience and interaction model.
+          </p>
+        </article>
+      </section>
     </main>
+
+    <footer class="wrap">
+      Built in a single internal-file format (HTML/CSS/JS) for GitHub Pages class presentation.
+    </footer>
+
     <script>
-      const scrollBar = document.getElementById("scrollBar");
-      const updateScrollBar = () => {
+      const progress = document.getElementById("progressBar");
+      const updateProgress = () => {
         const top = window.scrollY;
-        const total = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = total > 0 ? (top / total) * 100 : 0;
-        scrollBar.style.width = percent + "%";
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? (top / max) * 100 : 0;
+        progress.style.width = pct + "%";
       };
-      window.addEventListener("scroll", updateScrollBar, { passive: true });
-      updateScrollBar();
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+          });
+        },
+        { threshold: 0.14 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
