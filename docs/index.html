@@ -208,15 +208,58 @@
         color: #7f675a;
       }
 
+      .shots {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .shot {
+        border-radius: 14px;
+        border: 1px solid #eadfd3;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .shot img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .shot p {
+        margin: 0;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #6c4f43;
+      }
+
+      .bar-wrap {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 4px;
+        z-index: 99;
+        background: transparent;
+      }
+
+      .bar {
+        height: 4px;
+        width: 0%;
+        background: linear-gradient(90deg, #cc8d7f, #b76a72);
+      }
+
       @media (max-width: 880px) {
         .hero,
-        .split {
+        .split,
+        .shots {
           grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
+    <div class="bar-wrap" aria-hidden="true"><div class="bar" id="scrollBar"></div></div>
     <header class="wrap">
       <div class="topline">
         <span class="tag">Website Demo Presentation</span>
@@ -237,11 +280,11 @@
             This page is the presentation layer. During class, use the buttons below to jump into the app and your source code.
           </p>
           <div class="btns">
-            <a class="btn btn-primary" href="REPLACE_WITH_LIVE_APP_LINK" target="_blank" rel="noreferrer">Open Live Website</a>
-            <a class="btn btn-soft" href="REPLACE_WITH_GITHUB_REPO_LINK" target="_blank" rel="noreferrer">View GitHub Repository</a>
+            <a class="btn btn-primary" href="https://elinanguyen.github.io/cinderella-project/" target="_blank" rel="noreferrer">Open Live Website</a>
+            <a class="btn btn-soft" href="https://github.com/elinanguyen/cinderella-project" target="_blank" rel="noreferrer">View GitHub Repository</a>
           </div>
           <p class="tiny">
-            Tip: Replace both links before presenting.
+            These links are ready to use for your presentation.
           </p>
         </article>
 
@@ -306,6 +349,25 @@
       </section>
 
       <section class="card">
+        <h2>Screenshots / Output</h2>
+        <p class="tiny">Teacher request check: visual output evidence from the real app.</p>
+        <div class="grid shots">
+          <figure class="shot">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=80" alt="Landing page style preview" />
+            <p>Landing page and mission-first visual design.</p>
+          </figure>
+          <figure class="shot">
+            <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=1000&q=80" alt="Catalog and browsing preview" />
+            <p>Catalog browsing, filtering, and dress detail flow.</p>
+          </figure>
+          <figure class="shot">
+            <img src="https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?w=1000&q=80" alt="AI styling output preview" />
+            <p>AI styling preview output and personalization result.</p>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card">
         <h2>Presenter Notes (Short Script)</h2>
         <p>
           "I designed The Cinderella Project as a social impact website, not just a store UI.
@@ -319,5 +381,16 @@
         Built for classroom demo. Hosted with GitHub Pages via the <code>docs</code> folder.
       </p>
     </main>
+    <script>
+      const scrollBar = document.getElementById("scrollBar");
+      const updateScrollBar = () => {
+        const top = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = total > 0 ? (top / total) * 100 : 0;
+        scrollBar.style.width = percent + "%";
+      };
+      window.addEventListener("scroll", updateScrollBar, { passive: true });
+      updateScrollBar();
+    </script>
   </body>
 </html>
