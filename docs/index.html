@@ -226,6 +226,32 @@
         margin-top: 10px;
       }
 
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .evidence-card {
+        border: 1px solid #ebdacd;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .evidence-card img {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid #f0e2d7;
+      }
+
+      .evidence-card p {
+        margin: 0;
+        padding: 10px 12px 12px;
+        font-size: 0.92rem;
+        color: #61473b;
+      }
+
       .snapshot {
         border: 1px solid #ebdacd;
         border-radius: 14px;
@@ -291,6 +317,7 @@
         .hero-grid,
         .split,
         .snapshot-grid,
+        .evidence-grid,
         .metrics {
           grid-template-columns: 1fr;
         }
@@ -330,7 +357,7 @@
             <a class="btn btn-main" href="https://enguyen26.github.io/CinderellaProjectPomfret/app/" target="_blank" rel="noreferrer">Open Live Website</a>
             <a class="btn btn-soft" href="https://github.com/elinanguyen/cinderella-project" target="_blank" rel="noreferrer">View Repository</a>
           </div>
-          <p class="small">Tip for class: keep this tab open and Cmd+click the live site button.</p>
+          <p class="small">Live links are included for direct evaluation and verification.</p>
         </article>
 
         <aside class="card">
@@ -362,13 +389,13 @@
     <main class="wrap">
       <section class="grid split reveal">
         <article class="card">
-          <h2>3-Minute Scroll Plan</h2>
+          <h2>Project Scope</h2>
           <ol class="flow">
-            <li><span class="time">0:00-0:30</span><span>Mission and audience: why this app matters to students.</span></li>
-            <li><span class="time">0:30-1:15</span><span>Home + gallery visuals: trust, warmth, and community-centered tone.</span></li>
-            <li><span class="time">1:15-2:05</span><span>Catalog filters by size/style/availability for practical searching.</span></li>
-            <li><span class="time">2:05-2:45</span><span>AI try-on flow: photo upload, dress selection, personalized style feedback.</span></li>
-            <li><span class="time">2:45-3:00</span><span>Wrap up with impact and one next-step engineering goal.</span></li>
+            <li><span class="time">Mission</span><span>Social-impact focus: expand access to formalwear and confidence.</span></li>
+            <li><span class="time">UX</span><span>Editorial visual system designed for warmth, clarity, and trust.</span></li>
+            <li><span class="time">Catalog</span><span>Interactive filtering by size, style, and availability.</span></li>
+            <li><span class="time">AI</span><span>Virtual try-on workflow with photo upload and personalized styling text.</span></li>
+            <li><span class="time">Maps</span><span>Donation drop-box locator using ZIP input and map embed.</span></li>
           </ol>
         </article>
 
@@ -403,55 +430,39 @@
       </section>
 
       <section class="card reveal">
-        <h2>Feature Snapshots To Talk Through</h2>
-        <div class="snapshot-grid">
-          <article class="snapshot">
-            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="shot-body">
-              <strong>Home + Mission:</strong> sets emotional tone and user trust before any interaction.
-            </div>
+        <h2>Website Evidence (Screenshots)</h2>
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <img src="./evidence/website-mission.png" alt="Mission section screenshot from the Cinderella Project website" />
+            <p><strong>Mission Section:</strong> content strategy and tone centered on inclusion and impact.</p>
           </article>
-          <article class="snapshot">
-            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="shot-body">
-              <strong>Catalog Filters:</strong> practical browsing by size, style, and availability.
-            </div>
+          <article class="evidence-card">
+            <img src="./evidence/website-catalog.png" alt="Catalog filter and dress results screenshot" />
+            <p><strong>Dress Catalog:</strong> filter controls and dynamic result cards.</p>
           </article>
-          <article class="snapshot">
-            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="shot-body">
-              <strong>AI Try-On:</strong> combines image upload and AI response for personal styling support.
-            </div>
+          <article class="evidence-card">
+            <img src="./evidence/website-tryon.png" alt="Virtual try-on section screenshot" />
+            <p><strong>Virtual Try-On:</strong> photo upload + selected dress + AI styling workflow.</p>
           </article>
-        </div>
-        <div class="talk">
-          <strong>Quick Script:</strong>
-          “I treated this as a product for real students, not just a coding exercise. Every feature
-          answers a practical or emotional need: finding something that fits, feeling confident, and
-          being seen.”
+          <article class="evidence-card">
+            <img src="./evidence/website-map.png" alt="Donation drop box map screenshot" />
+            <p><strong>Donation Tools:</strong> ZIP lookup and embedded map output.</p>
+          </article>
         </div>
       </section>
 
-      <section class="grid split reveal">
-        <article class="card">
-          <h2>Why This Demo Works For Class</h2>
-          <ul>
-            <li>Single smooth scroll with clear story pacing.</li>
-            <li>Readable at zoomed sizes due to fluid typography.</li>
-            <li>Shows both design thinking and implementation depth.</li>
-            <li>Includes live project output, not just static slides.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h2>Next Technical Upgrade</h2>
-          <p>
-            Build a real backend inventory system (auth + reservations) so dress availability updates
-            safely for multiple users at once.
-          </p>
-          <p class="small">
-            This is the natural step after validating the front-end experience and interaction model.
-          </p>
-        </article>
+      <section class="card reveal">
+        <h2>Code Evidence (Implementation)</h2>
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <img src="./evidence/code-filter-logic.png" alt="Code screenshot showing dress filter logic" />
+            <p><strong>Core Logic:</strong> state-driven filtering for real-time catalog updates.</p>
+          </article>
+          <article class="evidence-card">
+            <img src="./evidence/code-ai-fetch.png" alt="Code screenshot showing AI API fetch request" />
+            <p><strong>API Integration:</strong> asynchronous AI request handling in the virtual try-on feature.</p>
+          </article>
+        </div>
       </section>
     </main>
 
